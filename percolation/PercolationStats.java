@@ -17,8 +17,7 @@ public class PercolationStats {
             while(!percolation.percolates()) {
                 int row = StdRandom.uniform(n - 1) + 1;
                 int col = StdRandom.uniform(n - 1) + 1;
-                if(percolation.isFull(row, col))
-                    percolation.open(row, col); // Opens a random site uniformly distributed between 1 and n * n
+                percolation.open(row, col); // Opens a random site uniformly distributed between 1 and n * n
             }
             
             percolationThresholds[i] = (double)percolation.numberOfOpenSites() / (double)(n * n);
@@ -43,5 +42,8 @@ public class PercolationStats {
             return;
         
         PercolationStats percolationStats = new PercolationStats(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+        System.out.format("%-23s:%d\n", "mean", percolationStats.mean());
+        System.out.format("%-23s:%d\n", "stddev", percolationStats.stddev());
+        System.out.format("[%-23s,:%d]\n", "95% confidence interval", percolationStats.confidenceLo(), percolationStats.confidenceHi());
     }
 }
