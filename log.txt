@@ -1,0 +1,228 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20170406104200
+Username: DESKTOP-2E630L3\dyljs
+RunAs User: DESKTOP-2E630L3\dyljs
+Machine: DESKTOP-2E630L3 (Microsoft Windows NT 10.0.14393.0)
+Host Application: C:\WINDOWS\System32\WindowsPowershell\v1.0\PowerShell.exe -ExecutionPolicy Unrestricted -NoProfile -Command . 'C:\Users\dyljs\AppData\Local\algs4.ps1'
+Process ID: 9832
+PSVersion: 5.1.14393.953
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14393.953
+BuildVersion: 10.0.14393.953
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+####################################################################
+#                                                                  #
+#            d8888 888      .d8888b.   .d8888b.        d8888       #
+#           d88888 888     d88P  Y88b d88P  Y88b      d8P888       #
+#          d88P888 888     888    888 Y88b.          d8P 888       #
+#         d88P 888 888     888         "Y888b.      d8P  888       #
+#        d88P  888 888     888  88888     "Y88b.   d88   888       #
+#       d88P   888 888     888    888       "888   8888888888      #
+#      d8888888888 888     Y88b  d88P Y88b  d88P         888       #
+#     d88P     888 88888888 "Y8888P88  "Y8888P"          888       #
+#                                                                  #
+####################################################################
+#                                                                  #
+# Java Programming Environment Setup                               #
+# for Microsoft Windows - v3.5                                     #
+# Princeton University - Hayk Martirosyan                          #
+#                                                                  #
+####################################################################
+
+Initializing functions and beginning installation...
+
+Creating installation directory at
+C:\Users\dyljs\algs4
+
+Creating bin directory at
+C:\Users\dyljs\algs4\bin
+
+Checking system architecture...
+64-bit machine detected.
+
+#### Step 1 - Java #################################################
+
+Downloading Java from
+http://algs4.cs.princeton.edu/windows/java64.zip
+to
+C:\Users\dyljs\algs4\java.zip
+
+Extracting zip archive in place at
+C:\Users\dyljs\algs4\java.zip
+
+and deleting .zip file.
+
+Setting the user PATH environment variable to include
+C:\Users\dyljs\algs4\java\bin
+
+Downloading java-algs4.bat from
+http://algs4.cs.princeton.edu/windows/java-algs4.bat
+to
+C:\Users\dyljs\algs4\bin\java-algs4.bat
+
+Downloading javac-algs4.bat from
+http://algs4.cs.princeton.edu/windows/javac-algs4.bat
+to
+C:\Users\dyljs\algs4\bin\javac-algs4.bat
+
+Setting the user PATH environment variable to include
+C:\Users\dyljs\algs4\bin
+
+#### Step 2 - Textbook Libraries ###################################
+
+Downloading stdlib.jar from
+http://introcs.cs.princeton.edu/java/stdlib/stdlib.jar
+to
+C:\Users\dyljs\algs4\stdlib.jar
+
+Downloading algs4.jar from
+http://algs4.cs.princeton.edu/code/algs4.jar
+to
+C:\Users\dyljs\algs4\algs4.jar
+
+#### Step 3 - Checkstyle ###########################################
+
+Downloading checkstyle from
+http://algs4.cs.princeton.edu/windows/checkstyle.zip
+to
+C:\Users\dyljs\algs4\checkstyle.zip
+
+Extracting zip archive in place at
+C:\Users\dyljs\algs4\checkstyle.zip
+
+and deleting .zip file.
+
+Downloading checkstyle configuration file from
+http://algs4.cs.princeton.edu/windows/checkstyle.xml
+to
+C:\Users\dyljs\algs4\checkstyle-6.9\checkstyle.xml
+
+Downloading checkstyle execution script from
+http://algs4.cs.princeton.edu/windows/checkstyle-algs4.bat
+to
+C:\Users\dyljs\algs4\bin\checkstyle-algs4.bat
+
+Downloading checkstyle wrapper script from
+http://algs4.cs.princeton.edu/windows/checkstyle-algs4.ps1
+to
+C:\Users\dyljs\algs4\bin\checkstyle-algs4.ps1
+
+Setting the user PATH environment variable to include
+C:\Users\dyljs\algs4\bin
+
+#### Step 4 - Findbugs #############################################
+
+Downloading findbugs from
+http://algs4.cs.princeton.edu/windows/findbugs.zip
+to
+C:\Users\dyljs\algs4\findbugs.zip
+
+Extracting zip archive in place at
+C:\Users\dyljs\algs4\findbugs.zip
+
+and deleting .zip file.
+
+Downloading findbugs configuration file from
+http://algs4.cs.princeton.edu/windows/findbugs.xml
+to
+C:\Users\dyljs\algs4\findbugs-3.0.1\findbugs.xml
+
+Downloading findbugs execution script from
+http://algs4.cs.princeton.edu/windows/findbugs-algs4.bat
+to
+C:\Users\dyljs\algs4\bin\findbugs-algs4.bat
+
+Downloading findbugs wrapper script from
+http://algs4.cs.princeton.edu/windows/findbugs-algs4.ps1
+to
+C:\Users\dyljs\algs4\bin\findbugs-algs4.ps1
+
+Setting the user PATH environment variable to include
+C:\Users\dyljs\algs4\bin
+
+Adding findbugs to registry...
+java : The following errors occurred during analysis:
+At C:\Users\dyljs\AppData\Local\algs4.ps1:357 char:1
++ java -jar "${findbugs}\lib\findbugs.jar" -textui -longBugCodes -exclu ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (The following e...uring analysis::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+  File not found: filesystem:C:\Users\dyljs\AppData\Local\nonsense
+
+Exception in thread "main" java.io.IOException: No files to analyze could be opened
+	at edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:276)
+	at edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:402)
+	at edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1200)
+	at edu.umd.cs.findbugs.LaunchAppropriateUI.launch(LaunchAppropriateUI.java:106)
+	at edu.umd.cs.findbugs.LaunchAppropriateUI.main(LaunchAppropriateUI.java:198)
+
+#### Step 6 - DrJava ###############################################
+
+Downloading DrJava from
+http://algs4.cs.princeton.edu/windows/drjava.jar
+to
+C:\Users\dyljs\algs4\drjava.jar
+
+Downloading DrJava configuration file from
+http://algs4.cs.princeton.edu/windows/drjava-config.txt
+to
+C:\Users\dyljs\.drjava
+
+Replacing text in file
+C:\Users\dyljs\.drjava
+from
+INSTALL_DIR
+to
+C:\\Users\\dyljs\\algs4
+
+Creating a shortcut to DrJava from
+C:\Users\dyljs\algs4\DrJava.lnk
+to
+C:\Users\dyljs\algs4\drjava.jar
+
+Creating a shortcut to DrJava from
+C:\Users\dyljs\Desktop\DrJava.lnk
+to
+C:\Users\dyljs\algs4\drjava.jar
+
+#### Step 7 - Command Prompt #######################################
+
+Editing registry to customize Command Prompt preferences...
+Setting Quick Edit mode to on.
+Setting Insert Mode to on.
+Setting the Screen Buffer Size to 80 x 500.
+
+Creating a shortcut to Command Prompt on the desktop from
+C:\Users\dyljs\Desktop\Command Prompt.lnk
+to
+C:\WINDOWS\system32\cmd.exe
+
+#### Step 7 - Test it out! #########################################
+
+Installation complete! Downloading test Java program...
+
+Compiling test Java program...
+
+Test program compiled. Running...
+
+
+If you saw the bullseye and textbook graphic, the installation
+was successful and you are ready to start programming in Java.
+Continue with the introductory tutorial on the website.
+
+NOTE: If there were any error messages during this setup, check the
+troubleshooting section on the website or ask for help.
+
+A log file of this installation is saved at
+C:\Users\dyljs\algs4\log.txt
+
+You should now close this window...
+**********************
+Windows PowerShell transcript end
+End time: 20170406104424
+**********************
