@@ -16,11 +16,11 @@ public class Percolation {
        full[0] = true;
    }
    
-   private int indexOfRowAndCol(int row, int col) {
-       if(row > numOfCols || col > numOfCols || row <= 0 || col <= 0)
-           return -1;
-       return ((row - 1) * numOfCols) + col;
-   }
+//   private int indexOfRowAndCol(int row, int col) {
+//       if(row > numOfCols || col > numOfCols || row <= 0 || col <= 0)
+//           return -1;
+//       return ((row - 1) * numOfCols) + col;
+//   }
    
 //   private int rowFromIndex(int index) {
 //       if(index >= this.open.length - 1 || index <= 0)
@@ -38,11 +38,28 @@ public class Percolation {
        if(row > numOfCols || col > numOfCols || row <= 0 || col <= 0)
            throw new java.lang.IndexOutOfBoundsException();
        
-       int indexToSite = indexOfRowAndCol(row, col);
-       int indexToSiteAbove = indexOfRowAndCol(row - 1, col);
-       int indexToSiteBelow = indexOfRowAndCol(row + 1, col);
-       int indexToSiteLeft = indexOfRowAndCol(row, col - 1);
-       int indexToSiteRight = indexOfRowAndCol(row, col + 1);
+       int indexToSite = ((row - 1) * numOfCols) + col;
+       int indexToSiteAbove, indexToSiteBelow, indexToSiteLeft, indexToSiteRight;
+       
+       if((row - 1) > numOfCols || col > numOfCols || (row - 1) <= 0 || col <= 0)
+           indexToSiteAbove = -1;
+       else
+           indexToSiteAbove = (((row - 1) - 1) * numOfCols) + col;
+       
+       if((row + 1) > numOfCols || col > numOfCols || (row + 1) <= 0 || col <= 0)
+           indexToSiteBelow = -1;
+       else
+           indexToSiteBelow = (((row + 1) - 1) * numOfCols) + col;
+       
+       if(row > numOfCols || (col - 1) > numOfCols || row <= 0 || (col - 1) <= 0)
+           indexToSiteLeft = -1;
+       else
+           indexToSiteLeft = ((row - 1) * numOfCols) + (col - 1);
+       
+       if(row > numOfCols || (col + 1) > numOfCols || row <= 0 || (col + 1) <= 0)
+           indexToSiteRight = -1;
+       else
+           indexToSiteRight = ((row - 1) * numOfCols) + (col + 1);
        
        // Open site
        open[indexToSite] = true;
@@ -95,14 +112,14 @@ public class Percolation {
        if(row > numOfCols || col > numOfCols || row <= 0 || col <= 0)
            throw new java.lang.IndexOutOfBoundsException();
        
-       return open[indexOfRowAndCol(row, col)] ;
+       return open[((row - 1) * numOfCols) + col] ;
    }
    
    public boolean isFull(int row, int col) {
        if(row > numOfCols || col > numOfCols || row <= 0 || col <= 0)
            throw new java.lang.IndexOutOfBoundsException();
        
-       return full[indexOfRowAndCol(row, col)] && weightedUnion.connected(indexOfRowAndCol(row, col), 0);
+       return full[((row - 1) * numOfCols) + col] && weightedUnion.connected(((row - 1) * numOfCols) + col, 0);
    }
    
    public int numberOfOpenSites() {

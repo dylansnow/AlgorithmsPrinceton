@@ -15,9 +15,10 @@ public class PercolationStats {
         for(int i = 0; i < trials; i++) {
             Percolation percolation = new Percolation(n);
             while(!percolation.percolates()) {
-                int row = StdRandom.uniform(n - 1) + 1;
-                int col = StdRandom.uniform(n - 1) + 1;
-                percolation.open(row, col); // Opens a random site uniformly distributed between 1 and n * n
+                int row = StdRandom.uniform(n) + 1;
+                int col = StdRandom.uniform(n) + 1;
+                if(!percolation.isOpen(row,col))
+                    percolation.open(row, col); // Opens a random site uniformly distributed between 1 and n * n
             }
             
             percolationThresholds[i] = (double)percolation.numberOfOpenSites() / (double)(n * n);
@@ -27,12 +28,15 @@ public class PercolationStats {
     public double mean() {
         return StdStats.mean(percolationThresholds);
     }
+    
     public double stddev() {
         return StdStats.stddev(percolationThresholds);
     }
+    
     public double confidenceLo() {
         return this.mean() - ((1.96 * this.stddev()) / Math.sqrt((double)numOfTrials));
     }
+    
     public double confidenceHi() {
         return this.mean() + ((1.96 * this.stddev()) / Math.sqrt((double)numOfTrials));
     }
@@ -42,8 +46,8 @@ public class PercolationStats {
             return;
         
         PercolationStats percolationStats = new PercolationStats(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
-        System.out.format("%-23s:%d\n", "mean", percolationStats.mean());
-        System.out.format("%-23s:%d\n", "stddev", percolationStats.stddev());
-        System.out.format("[%-23s,:%d]\n", "95% confidence interval", percolationStats.confidenceLo(), percolationStats.confidenceHi());
+        System.out.format("%-23s: %-10f\n", "mean", percolationStats.mean());
+        System.out.format("%-23s: %-10f\n", "stddev", percolationStats.stddev());
+        System.out.format("%-23s: [%-10f, %-10f]\n", "95% confidence interval", percolationStats.confidenceLo(), percolationStats.confidenceHi());
     }
 }
