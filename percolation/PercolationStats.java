@@ -2,8 +2,8 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
-    double[] percolationThresholds;
-    int numOfTrials;
+    private double[] percolationThresholds;
+    private int numOfTrials;
     
     public PercolationStats(int n, int trials) {
         if(n <= 0 || trials <= 0)
